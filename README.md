@@ -1,2 +1,0 @@
-# dasariyadhesh.github.io
-portfoli
