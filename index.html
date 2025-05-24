@@ -1,89 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Yadhesh Dasari | Software Engineer Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Yadhesh Dasari - Software Engineer Portfolio">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yadhesh Dasari | Portfolio</title>
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
-      background: #f8fafc;
       margin: 0;
-      color: #22223b;
-      line-height: 1.7;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(90deg, rgba(32, 5, 94, 1) 90%, rgba(128, 6, 156, 1) 100%, rgba(252, 176, 69, 1) 100%);
+      background-size: 200% 200%; /* To enable animation */
+      animation: waveAnimation 6s ease infinite; /* Animation for wave effect */
+      color: #fff; /* White text for contrast */
     }
+
+    @keyframes waveAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
     .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px 20px;
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(30,34,90,0.07);
+      max-width: 1050px;
+      margin: 2.5rem auto;
+      padding: 2.5rem;
+      background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+      border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.2);
     }
-    h1 {
-      margin-bottom: 0.1em;
-      font-size: 2.6em;
-      color: #22223b;
-      letter-spacing: 2px;
+    h1, h2 {
+      color: #fff; /* White text for headings */
+      margin-top: 0;
     }
-    h2 {
-      margin-top: 1.6em;
-      margin-bottom: 0.5em;
-      color: #3a5a40;
-      border-left: 4px solid #3a86ff;
-      padding-left: 9px;
-      font-size: 1.5em;
-    }
-    .summary {
-      font-size: 1.13em;
-      margin-bottom: 14px;
-      color: #2d3142;
-    }
-    .social-links {
-      margin: 12px 0 32px 0;
-    }
-    .social-links a {
-      display: inline-block;
-      margin-right: 16px;
-      margin-bottom: 7px;
-      text-decoration: none;
-      color: #3a86ff;
-      font-weight: 500;
-    }
-    .social-links a:hover {
-      color: #1b263b;
-      text-decoration: underline;
-    }
-    ul, ol {
-      padding-left: 22px;
-    }
-    .job-title {
-      font-weight: bold;
-      font-size: 1.08em;
-      color: #003049;
-    }
-    .workplace {
-      color: #495057;
-      font-weight: 500;
-      font-size: 1em;
-    }
-    .year {
-      color: #888;
-      font-size: 0.98em;
-      margin-left: 4px;
+    .intro {
+      font-size: 1.3rem;
+      margin-bottom: 2.2rem;
     }
     .section {
-      margin-bottom: 28px;
+      margin: 2.2rem 0;
     }
-    .skills-list {
+    .card-list {
       display: flex;
       flex-wrap: wrap;
-      list-style: none;
-      padding: 0;
-      margin: 0;
+      gap: 1.5rem;
+      margin-top: 1rem;
     }
+    .card-list1 {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 0;
+      padding: 0.5rem;
+    }
+    .card-list1 .card1 {
+  margin: 0; /* Ensure no extra margin is added to individual cards */
+  padding: 1rem; /* Add padding for better readability */
+  background: rgba(255, 255, 255, 0.1); /* Optional: Add a background for better visibility */
+  border-radius: 10px; /* Optional: Add rounded corners */
+}
+    .card {
+      flex: 1 1 320px;
+      background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+      border-radius: 13px;
+      padding: 1.3rem 1.1rem;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+      color: #fff; /* White text for cards */
+    }
+    .card:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+    .social-tab {
+      position: fixed;
+      top: 50%;
+      right: 24px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      z-index: 99;
+    }
+    .social-tab a {
+      background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.55rem;
+      color: #fff; /* White icons */
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    /* Profile Image */
     .skills-list li {
       background: #e0e7ff;
       color: #22223b;
@@ -92,79 +113,235 @@
       margin: 5px 10px 5px 0;
       font-size: 1em;
     }
-    .project-card {
-      background: #f0efeb;
-      padding: 16px 18px;
-      border-radius: 12px;
-      margin-bottom: 13px;
-      box-shadow: 0 1px 5px rgba(30,34,90,0.04);
+.profile-image {
+  position: fixed;
+  top: 20px; /* Adjust the top margin */
+  right: 20px; /* Adjust the right margin */
+  width: 100px; /* Adjust the size */
+  height: 100px;
+  border-radius: 50%; /* Makes the image circular */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for better appearance */
+  border: 2px solid #fff; /* Optional border for better visibility */
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+/* Floating Contact Section */
+.floating-contact {
+  position: fixed;
+  top: 140px; /* Below the profile image */
+  right: 20px; /* Align with the profile image */
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure it stays on top */
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.floating-contact .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.floating-contact .contact-item i {
+  font-size: 1.2rem;
+  color: #ffcc00; /* Highlighted icon color */
+}
+
+.floating-contact .contact-item a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.floating-contact .contact-item a:hover {
+  text-decoration: underline;
+}
+    .social-tab a:hover {
+      background: rgba(255, 255, 255, 0.4); /* Slightly brighter on hover */
+    }
+    @media (max-width: 850px) {
+      .container {
+        padding: 1.3rem;
+      }
+      .card-list {
+        flex-direction: column;
+      }
+      .social-tab {
+        right: 10px;
+      }
     }
     @media (max-width: 600px) {
       .container {
-        padding: 10px 2vw;
+        padding: 0.2rem;
       }
       h1 {
-        font-size: 2em;
+        font-size: 1.7rem;
       }
-      h2 {
-        font-size: 1.1em;
+      .card {
+        font-size: 1rem;
       }
+    }
+    a {
+      color: #fff; /* White links */
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Yadhesh Dasari</h1>
-    <div class="summary">
-      Software Engineer with 3+ years of experience in backend development, microservices, and system design. Specialized in Java, Spring Boot, Kafka, and distributed systems. Passionate about building secure, efficient applications and driving high-impact outcomes in Agile environments.
-    </div>
-
-    <div class="social-links">
-      <a href="https://github.com/dasariyadhesh" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/dasariyadhesh/" target="_blank">LinkedIn</a>
-      <a href="https://leetcode.com/dasariyadhesh" target="_blank">LeetCode</a>
-      <a href="https://www.codechef.com/users/dasariyadhesh" target="_blank">CodeChef</a>
-      <a href="https://auth.geeksforgeeks.org/user/dasariyadhesh" target="_blank">GeeksforGeeks</a>
-      <a href="https://www.codingninjas.com/studio/profile/dasariyadhesh" target="_blank">CodeStudio</a>
-      <!-- Add other profiles as needed -->
-    </div>
-
-    <div class="section">
-      <h2>Work Experience</h2>
-      <div>
-        <div class="job-title">Software Engineer <span class="workplace">@ Blue Yonder (Panasonic)</span> <span class="year">Sep 2024 - Present</span></div>
-        <ul>
-          <li>Improved Warehouse Management System performance by optimizing inventory and order fulfillment processes using Java EE, Spring Boot, Microservices, MS SQL, GraphQL, Kafka, Azure, JUnit, and ReactJS.</li>
-          <li>Enhanced the Yard Management System, streamlining trailer movements and improving resource management:
+    <body>
+      <div class="container">
+        <img src="ProfilePic.jpg" alt="Yadhesh Dasari" class="profile-image">
+        <div class="floating-contact">
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:dasariyadhesh@gmail.com">dasariyadhesh</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+91 9063325407">+91 9063325407</a>
+          </div>
+        </div>
+        <h1>👋 Hi, I'm Yadhesh Dasari!</h1>
+          <div class="intro">
             <ul>
-              <li>Gate Management: Automated trailer entry/exit flows.</li>
-              <li>Carrier Workspace: Integrated platform for smoother coordination.</li>
-              <li>Metrics Delivery: Enabled real-time performance tracking dashboards.</li>
+              <li>Passionate about solving complex problems and building impactful digital solutions.</li>
+              <li>Thrive in brainstorming innovative ideas, writing clean code, and debugging issues.</li>
+              <li>Love collaborating over a cup of coffee, tackling mock interviews, and solving challenges together.</li>
             </ul>
-          </li>
-        </ul>
-      </div>
-      <div style="margin-top:1em">
-        <div class="job-title">Associate Software Engineer <span class="workplace">@ Innominds Software</span> <span class="year">May 2022 - Sep 2024</span></div>
-        <ul>
-          <li>Designed and built the DS PRO Commission Engine from scratch, transforming high-level business logic into scalable, production-ready backend services using Java, Spring Boot, Drools, and MySQL.</li>
-          <li>Led a critical data migration from OrientDB (Graph DB) to MySQL (Relational DB) by redesigning the data model, establishing relational mappings, and ensuring data integrity across complex hierarchies.</li>
-          <li>Built asynchronous data processing pipelines using Java’s Concurrency APIs, leading to a 50% improvement in performance and reduced system latency.</li>
-          <li>Led multiple POCs for database migration strategies, comparing NoSQL and SQL-based solutions to meet scalability, compliance, and performance goals.</li>
-          <li>Ensured GDPR compliance by implementing dynamic data masking and configurable deletion rules.</li>
-          <li>Developed Flyway scripts to automate schema versioning and ensure smooth, error-free deployments.</li>
-        </ul>
-      </div>
-    </div>
+          <strong>Let’s connect and create something amazing together!</strong>
+        </div>
+    
+        <div class="section">
+          <h2>🌟 Summary of My Impact</h2>
+          <ul>
+            <li>Transformed ideas into real-world digital projects—delivering value and delight to users.</li>
+            <li>Active problem solver: consistently ranked on coding platforms and always up for a challenge.</li>
+            <li>Open source contributor: collaborated with global teams to refine and launch community tools.</li>
+            <li>Driven by curiosity—always learning, always building, and always sharing knowledge.</li>
+          </ul>
+        </div>
+    
+        <div class="section">
+          <h2>💼 Work Experience</h2>
+          <div class="card-list1">
+            <!-- First Experience: Blue Yonder -->
+            <div class="card1">
+              <strong>Blue Yonder (Panasonic) — Bangalore, India</strong><br>
+              <span>Software Engineer | September 2024 - Present</span>
+              <ul>
+                <li>Improved Warehouse Management System performance by optimizing inventory and order fulfillment processes.</li>
+                <li>Enhanced Yard Management System by automating trailer entry/exit flows and integrating carrier workspace.</li>
+                <li>Enabled real-time performance tracking dashboards for metrics delivery.</li>
+              </ul>
+            </div>
+        
+            <!-- Second Experience: Innominds Software -->
+            <div class="card1">
+              <strong>Innominds Software — Hyderabad, India</strong><br>
+              <span>Associate Software Engineer | May 2022 - September 2024</span>
+              <ul>
+                <li>Designed and built the DS PRO Commission Engine from scratch, transforming business logic into scalable backend services.</li>
+                <li>Led a critical data migration from OrientDB to MySQL, ensuring data integrity and relational mappings.</li>
+                <li>Built asynchronous data processing pipelines, improving performance by 50% and reducing system latency.</li>
+                <li>Developed Flyway scripts for schema versioning and ensured smooth, error-free deployments.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-    <div class="section">
-      <h2>Education</h2>
-      <div>
-        <div class="job-title">Rajiv Gandhi University of Knowledge and Technologies (Formerly AP IIIT RK Valley)</div>
-        <div>Bachelor of Technology in Electronics and Communication Engineering | 2018 – 2022 | CGPA: 7.6</div>
-      </div>
-    </div>
+        <div class="section">
+          <h2>🎓 Education</h2>
+          <div class="card-list">
+            <!-- SSC -->
+            <div class="card">
+              <strong>Secondary School Certificate (SSC)</strong><br>
+              <span>Zilla Parishad High School, 2016 Batch</span><br>
+              <span>CGPA: 9.7</span>
+            </div>
+        
+            <!-- PUC -->
+            <div class="card">
+              <strong>Pre-University Course (PUC)</strong><br>
+              <span>Rajiv Gandhi University of Knowledge and Technologies formely AP IIIT, 2016-2018</span><br>
+              <span>Stream: Mathematics, Physics, and Chemistry (MPC)</span><br>
+              <span>CGPA: 8.6</span>
+            </div>
+        
+            <!-- B.Tech -->
+            <div class="card">
+              <strong>Bachelor of Technology (B.Tech)</strong><br>
+              <span>Rajiv Gandhi University of Knowledge and Technologies formely AP IIIT, 2018-2022</span><br>
+              <span>Stream: Electronics and Communication Engineering (ECE)</span><br>
+              <span>CGPA: 7.8</span>
+            </div>
+          </div>
+        </div>
 
+        <div class="section">
+          <h2>🧠 Problem Solving</h2>
+          <div class="card-list">
+            <div class="card">
+              <i class="fa-solid fa-code badge"></i>
+              <strong>LeetCode</strong><br>
+              <span>Solved 300+ coding problems<br>
+                <a href="https://leetcode.com/u/dasariyadhesh/" target="_blank">View my LeetCode</a>
+              </span>
+            </div>
+            <div class="card">
+              <i class="fa-solid fa-laptop-code badge"></i>
+              <strong>Coding Ninjas</strong><br>
+              <span>Gold badge in Algorithms<br>
+                <a href="https://www.naukri.com/code360/profile/dasariyadhesh" target="_blank">View my Coding Ninja profile</a>
+              </span>
+            </div>
+           
+          </div>
+        </div>
+    
+        <div class="section">
+          <h2>🛠️ My Projects</h2>
+          <div class="card-list1">
+            <!-- First Project: E-Commerce Platform -->
+            <div class="card1">
+              <strong>🛒 E-Commerce Platform</strong>
+              <p>
+                A full-stack, production-ready E-commerce platform designed using Spring Boot, Hibernate, and Microservices architecture with Kafka-based messaging, MySQL, and secured endpoints. Built with scalability, reusability, and modularity in mind.
+              </p>
+              <ul>
+                <li>🔐 User & Admin authentication with role-based access.</li>
+                <li>🛍 Product catalog, category management, customer list (Admin view).</li>
+                <li>📦 Inventory management, secure product upload with images.</li>
+                <li>🛠 Integrated REST APIs with Swagger documentation.</li>
+                <li>📈 Metrics dashboard & admin workspace.</li>
+              </ul>
+              <span>Tech: Java, Spring Boot, Hibernate, MySQL, JSP</span><br>
+              <a href="https://github.com/dasariyadhesh/Ecommerce_Site" target="_blank">GitHub Repo</a>
+            </div>
+        
+            <!-- Second Project: Photo-Editax-App -->
+            <div class="card1">
+              <strong>📸 Photo-Editax-App</strong>
+              <p>
+                A Python-based photo editing application designed to provide users with essential tools for image enhancement and manipulation. The application leverages Python's powerful image processing libraries to make photo editing simple, efficient, and accessible.
+              </p>
+              <ul>
+                <li>🖼 Image Editing: Resize, crop, and rotate images with ease.</li>
+                <li>🎨 Filters and Effects: Apply various filters to enhance the appearance of photos.</li>
+                <li>🌈 Color Adjustments: Modify brightness, contrast, and saturation for perfect results.</li>
+                <li>✨ Customizable Tools: Add personalized effects to images.</li>
+              </ul>
+              <span>Tech: Python, OpenCV, PIL</span><br>
+              <a href="https://github.com/dasariyadhesh/Photo-Editax-App-main" target="_blank">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+        
     <div class="section">
       <h2>Skills</h2>
       <ul class="skills-list">
@@ -193,17 +370,20 @@
         <li>Agile</li>
       </ul>
     </div>
-
-    <div class="section">
-      <h2>Projects</h2>
-      <div class="project-card">
-        <strong>DS PRO Commission Engine</strong>: Designed and built from scratch, transforming business logic into scalable backend services.
+    
+      <!-- Social Media Tab -->
+      <div class="social-tab">
+        <a href="https://www.linkedin.com/in/dasariyadhesh/" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/yadhesh_dasari/" target="_blank" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/yadheshyadu" target="_blank" title="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
       </div>
-      <div class="project-card">
-        <strong>Warehouse Management System Optimization</strong>: Improved inventory/order fulfillment and integrated real-time dashboards.
-      </div>
-      <!-- Add more project cards as needed -->
-    </div>
+    </body>
   </div>
 </body>
 </html>
