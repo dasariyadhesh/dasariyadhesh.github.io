@@ -3,396 +3,1002 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yadhesh Dasari | Portfolio</title>
-  <!-- FontAwesome for icons -->
+  <title>Yadhesh DG | Software Engineer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(90deg, rgba(32, 5, 94, 1) 90%, rgba(128, 6, 156, 1) 100%, rgba(252, 176, 69, 1) 100%);
-      background-size: 200% 200%; /* To enable animation */
-      animation: waveAnimation 6s ease infinite; /* Animation for wave effect */
-      color: #fff; /* White text for contrast */
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    @keyframes waveAnimation {
-      0% {
-        background-position: 0% 50%;
+    body {
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(-45deg, #0a0e27, #16213e, #1a1a2e, #0f3460);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+      color: #e4e4e7;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
       }
-      50% {
-        background-position: 100% 50%;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
-      100% {
-        background-position: 0% 50%;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-60px);
       }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(3deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7); }
+      50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(14, 165, 233, 0); }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
+    }
+
+    @keyframes borderGlow {
+      0%, 100% { border-color: rgba(14, 165, 233, 0.5); }
+      50% { border-color: rgba(14, 165, 233, 1); }
     }
 
     .container {
-      max-width: 1050px;
-      margin: 2.5rem auto;
-      padding: 2.5rem;
-      background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
-      border-radius: 20px;
-      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.2);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem;
+      animation: fadeInUp 0.8s ease-out;
     }
-    h1, h2 {
-      color: #fff; /* White text for headings */
-      margin-top: 0;
+
+    .header-section {
+      position: relative;
+      margin-bottom: 3.5rem;
+      padding: 3rem 2.5rem;
+      background: rgba(22, 33, 62, 0.6);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      border: 1px solid rgba(14, 165, 233, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 60px rgba(14, 165, 233, 0.1);
+      animation: slideInLeft 1s ease-out;
+      overflow: hidden;
     }
-    .intro {
+
+    .header-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+      animation: float 15s ease-in-out infinite;
+    }
+
+    .profile-section {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      z-index: 1000;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .profile-image {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid rgba(14, 165, 233, 0.5);
+      box-shadow: 0 8px 32px rgba(14, 165, 233, 0.4), 0 0 60px rgba(14, 165, 233, 0.2);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: pulse 3s ease-in-out infinite;
+      object-fit: cover;
+    }
+
+    .profile-image:hover {
+      transform: scale(1.15) rotate(10deg);
+      border-color: rgba(14, 165, 233, 1);
+      box-shadow: 0 15px 50px rgba(14, 165, 233, 0.6), 0 0 80px rgba(14, 165, 233, 0.4);
+    }
+
+    .floating-contact {
+      position: fixed;
+      top: 195px;
+      right: 30px;
+      background: rgba(22, 33, 62, 0.8);
+      backdrop-filter: blur(20px);
+      padding: 1.2rem 1.5rem;
+      border-radius: 18px;
+      border: 1px solid rgba(14, 165, 233, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 40px rgba(14, 165, 233, 0.15);
+      z-index: 1000;
+      transition: all 0.4s ease;
+    }
+
+    .floating-contact:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(14, 165, 233, 0.5);
+      border-color: rgba(14, 165, 233, 0.6);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateX(-8px);
+    }
+
+    .contact-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-item i {
       font-size: 1.3rem;
-      margin-bottom: 2.2rem;
+      color: #0ea5e9;
+      filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.6));
+      transition: all 0.3s ease;
     }
+
+    .contact-item:hover i {
+      color: #38bdf8;
+      filter: drop-shadow(0 0 12px rgba(14, 165, 233, 1));
+      transform: scale(1.2);
+    }
+
+    .contact-item a {
+      color: #e4e4e7;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .contact-item a:hover {
+      color: #0ea5e9;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff, #0ea5e9, #38bdf8, #7dd3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+      background-size: 1000px 100%;
+      letter-spacing: -0.5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      color: #0ea5e9;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      text-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.8rem;
+      color: #0ea5e9;
+      text-shadow: 0 0 25px rgba(14, 165, 233, 0.4);
+      position: relative;
+      padding-bottom: 0.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #0ea5e9, #38bdf8, transparent);
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(14, 165, 233, 0.6);
+    }
+
+    .intro {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      animation: fadeInUp 1s ease-out 0.3s backwards;
+      color: #cbd5e1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro p {
+      margin-bottom: 1.5rem;
+    }
+
+    .intro strong {
+      color: #0ea5e9;
+      font-weight: 700;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      background: rgba(14, 165, 233, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(14, 165, 233, 0.3);
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      background: rgba(14, 165, 233, 0.15);
+      border-color: rgba(14, 165, 233, 0.6);
+      box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #0ea5e9;
+      text-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
     .section {
-      margin: 2.2rem 0;
+      margin: 3.5rem 0;
+      padding: 2.5rem;
+      background: rgba(22, 33, 62, 0.4);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      transition: all 0.5s ease;
+      animation: fadeInUp 0.8s ease-out backwards;
+      position: relative;
+      overflow: hidden;
     }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.1), transparent);
+      transition: left 0.8s ease;
+    }
+
+    .section:hover::before {
+      left: 100%;
+    }
+
+    .section:hover {
+      background: rgba(22, 33, 62, 0.6);
+      border-color: rgba(14, 165, 233, 0.4);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4), 0 0 60px rgba(14, 165, 233, 0.2);
+    }
+
+    .section:nth-child(1) { animation-delay: 0.1s; }
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.3s; }
+    .section:nth-child(4) { animation-delay: 0.4s; }
+    .section:nth-child(5) { animation-delay: 0.5s; }
+    .section:nth-child(6) { animation-delay: 0.6s; }
+
     .card-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: rgba(15, 52, 96, 0.5);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(14, 165, 233, 0.25);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.15), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .card:hover::before {
+      left: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-12px) scale(1.03);
+      background: rgba(15, 52, 96, 0.7);
+      border-color: rgba(14, 165, 233, 0.6);
+      box-shadow: 0 20px 50px rgba(14, 165, 233, 0.3), 0 0 60px rgba(14, 165, 233, 0.15);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      color: #0ea5e9;
+      margin-bottom: 1.2rem;
+      display: block;
+      filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.6));
+    }
+
+    .work-card {
+      background: rgba(15, 52, 96, 0.4);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(14, 165, 233, 0.25);
+      transition: all 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-card::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 4px;
+      background: linear-gradient(180deg, #0ea5e9, #38bdf8);
+      box-shadow: 0 0 15px rgba(14, 165, 233, 0.8);
+    }
+
+    .work-card:hover {
+      background: rgba(15, 52, 96, 0.6);
+      transform: translateX(12px);
+      border-color: rgba(14, 165, 233, 0.5);
+      box-shadow: -8px 0 30px rgba(14, 165, 233, 0.25);
+    }
+
+    .work-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .work-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .company-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0ea5e9;
+      text-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+    }
+
+    .work-period {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .work-card ul {
+      margin: 1.5rem 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .work-card li {
+      margin-bottom: 1rem;
+      padding-left: 1.8rem;
+      position: relative;
+      color: #cbd5e1;
+      line-height: 1.7;
+      transition: all 0.3s ease;
+    }
+
+    .work-card li:hover {
+      transform: translateX(8px);
+      color: #e4e4e7;
+    }
+
+    .work-card li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: #0ea5e9;
+      font-size: 1.4rem;
+      font-weight: bold;
+      filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.6));
+    }
+
+    .project-card {
+      background: rgba(15, 52, 96, 0.4);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(14, 165, 233, 0.25);
+      transition: all 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      transition: all 0.5s ease;
+    }
+
+    .project-card:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .project-card:hover {
+      background: rgba(15, 52, 96, 0.6);
+      transform: translateY(-8px);
+      border-color: rgba(14, 165, 233, 0.5);
+      box-shadow: 0 15px 40px rgba(14, 165, 233, 0.25);
+    }
+
+    .project-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0ea5e9;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-card p {
+      color: #cbd5e1;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-card ul {
+      margin: 1.5rem 0;
+      padding-left: 0;
+      list-style: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-card li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.8rem;
+      position: relative;
+      color: #cbd5e1;
+      line-height: 1.7;
+      transition: all 0.3s ease;
+    }
+
+    .project-card li:hover {
+      transform: translateX(8px);
+      color: #e4e4e7;
+    }
+
+    .project-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #0ea5e9;
+      font-size: 1.5rem;
+      font-weight: bold;
+      filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.6));
+    }
+
+    .tech-stack {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin: 1rem 0;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skills-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 1rem;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin-top: 1.5rem;
     }
-    .card-list1 {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-top: 1rem;
-      margin-bottom: 0;
-      padding: 0.5rem;
+
+    .skills-list li {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(15, 52, 96, 0.4));
+      color: #e4e4e7;
+      border-radius: 25px;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: 1px solid rgba(14, 165, 233, 0.3);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: default;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
     }
-    .card-list1 .card1 {
-  margin: 0; /* Ensure no extra margin is added to individual cards */
-  padding: 1rem; /* Add padding for better readability */
-  background: rgba(255, 255, 255, 0.1); /* Optional: Add a background for better visibility */
-  border-radius: 10px; /* Optional: Add rounded corners */
-}
-    .card {
-      flex: 1 1 320px;
-      background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
-      border-radius: 13px;
-      padding: 1.3rem 1.1rem;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s;
-      color: #fff; /* White text for cards */
+
+    .skills-list li::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(14, 165, 233, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.4s ease, height 0.4s ease;
     }
-    .card:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+    .skills-list li:hover::before {
+      width: 200%;
+      height: 200%;
     }
+
+    .skills-list li:hover {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.4), rgba(15, 52, 96, 0.6));
+      transform: translateY(-5px) scale(1.08);
+      border-color: rgba(14, 165, 233, 0.6);
+      box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4);
+      color: #ffffff;
+    }
+
     .social-tab {
       position: fixed;
-      top: 50%;
-      right: 24px;
-      transform: translateY(-50%);
+      bottom: 30px;
+      right: 30px;
       display: flex;
-      flex-direction: column;
-      gap: 13px;
-      z-index: 99;
+      gap: 15px;
+      z-index: 999;
     }
+
     .social-tab a {
-      background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+      background: rgba(22, 33, 62, 0.8);
+      backdrop-filter: blur(15px);
       border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      width: 48px;
-      height: 48px;
+      width: 60px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.55rem;
-      color: #fff; /* White icons */
+      font-size: 1.6rem;
+      color: #0ea5e9;
       text-decoration: none;
-      transition: background 0.2s;
+      border: 2px solid rgba(14, 165, 233, 0.3);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
     }
-    /* Profile Image */
-    .skills-list li {
-      background: #e0e7ff;
-      color: #22223b;
-      border-radius: 16px;
-      padding: 6px 15px;
-      margin: 5px 10px 5px 0;
-      font-size: 1em;
+
+    .social-tab a::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(14, 165, 233, 0.4);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
     }
-.profile-image {
-  position: fixed;
-  top: 20px; /* Adjust the top margin */
-  right: 20px; /* Adjust the right margin */
-  width: 100px; /* Adjust the size */
-  height: 100px;
-  border-radius: 50%; /* Makes the image circular */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for better appearance */
-  border: 2px solid #fff; /* Optional border for better visibility */
-  z-index: 1000; /* Ensure it stays on top */
-}
 
-/* Floating Contact Section */
-.floating-contact {
-  position: fixed;
-  top: 140px; /* Below the profile image */
-  right: 20px; /* Align with the profile image */
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-  padding: 10px 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Ensure it stays on top */
-  color: #fff;
-  font-size: 0.9rem;
-}
+    .social-tab a:hover::before {
+      width: 120%;
+      height: 120%;
+    }
 
-.floating-contact .contact-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.floating-contact .contact-item i {
-  font-size: 1.2rem;
-  color: #ffcc00; /* Highlighted icon color */
-}
-
-.floating-contact .contact-item a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.floating-contact .contact-item a:hover {
-  text-decoration: underline;
-}
     .social-tab a:hover {
-      background: rgba(255, 255, 255, 0.4); /* Slightly brighter on hover */
+      background: rgba(14, 165, 233, 0.3);
+      transform: scale(1.2) translateY(-5px);
+      border-color: rgba(14, 165, 233, 0.8);
+      box-shadow: 0 10px 30px rgba(14, 165, 233, 0.5);
+      color: #ffffff;
     }
-    @media (max-width: 850px) {
-      .container {
-        padding: 1.3rem;
-      }
-      .card-list {
-        flex-direction: column;
-      }
-      .social-tab {
-        right: 10px;
-      }
+
+    .social-tab a i {
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.6));
     }
-    @media (max-width: 600px) {
-      .container {
-        padding: 0.2rem;
-      }
-      h1 {
-        font-size: 1.7rem;
-      }
-      .card {
-        font-size: 1rem;
-      }
-    }
+
     a {
-      color: #fff; /* White links */
+      color: #0ea5e9;
       text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
     }
+
     a:hover {
-      text-decoration: underline;
+      color: #38bdf8;
+      text-shadow: 0 0 10px rgba(14, 165, 233, 0.8);
+    }
+
+    strong {
+      color: #0ea5e9;
+      font-weight: 700;
+    }
+
+    .highlight {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    @media (max-width: 850px) {
+      .container { padding: 2rem 1.5rem; }
+      h1 { font-size: 2.5rem; }
+      .card-list { grid-template-columns: 1fr; }
+      .profile-section { top: 15px; right: 15px; }
+      .profile-image { width: 100px; height: 100px; }
+      .floating-contact { top: 130px; right: 15px; }
+      .stats-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem; }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      .section { padding: 1.8rem; }
+      .social-tab { bottom: 15px; right: 15px; }
+      .social-tab a { width: 50px; height: 50px; font-size: 1.3rem; }
+      .work-header { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-    <body>
-      <div class="container">
-        <img src="ProfilePic.jpg" alt="Yadhesh Dasari" class="profile-image">
-        <div class="floating-contact">
-          <div class="contact-item">
-            <i class="fa-solid fa-envelope"></i>
-            <a href="mailto:dasariyadhesh@gmail.com">dasariyadhesh</a>
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-phone"></i>
-            <a href="tel:+91 9063325407">+91 9063325407</a>
-          </div>
-        </div>
-        <h1>👋 Hi, I'm Yadhesh Dasari!</h1>
-          <div class="intro">
-            <div class="intro">
-  <p>
-    I’m a software engineer driven by a deep passion for solving complex problems and delivering impactful digital solutions. I believe that technology can simplify lives and elevate businesses—and I’m committed to building systems that do just that.
-  </p>
-  <ul>
-    <li>🔍 <strong>Problem Solver at Heart:</strong> I enjoy breaking down intricate challenges into manageable solutions. From optimizing backend services to debugging tough issues, I find satisfaction in unraveling complexity.</li>
-    <li>🧠 <strong>Innovation Enthusiast:</strong> I thrive in brainstorming sessions—whether it's designing efficient microservices, thinking through edge cases, or proposing new architectural patterns.</li>
-    <li>🧼 <strong>Clean Code Advocate:</strong> Writing readable, testable, and maintainable code is not just a best practice—it's my standard.</li>
-    <li>🔄 <strong>Fast Learner & Adaptable:</strong> I keep up with evolving technologies and love diving into new tools, frameworks, and best practices.</li>
-    <li>🤝 <strong>Collaborative Mindset:</strong> I enjoy engaging in mock interviews, pair programming, and whiteboarding sessions. Whether it's over a cup of coffee or during crunch time, I believe great ideas are born through collaboration.</li>
-  </ul>
-  <p>
-    👥 <strong>Let's connect:</strong> When I'm not coding, I'm likely engaging in mock interviews, exploring clean architecture principles, or catching up with peers over technical discussions. I love building and learning with others, so feel free to reach out for collaboration, code reviews, or just a good tech talk.
-  </p>
-</div>
-        </div>
-    
-        <div class="section">
-          <h2>🌟 Summary of My Impact</h2>
-          <ul>
-            <li>Transformed ideas into real-world digital projects—delivering value and delight to users.</li>
-            <li>Active problem solver: consistently ranked on coding platforms and always up for a challenge.</li>
-            <li>Open source contributor: collaborated with global teams to refine and launch community tools.</li>
-            <li>Driven by curiosity—always learning, always building, and always sharing knowledge.</li>
-          </ul>
-        </div>
-    
-        <div class="section">
-          <h2>💼 Work Experience</h2>
-          <div class="card-list1">
-            <!-- First Experience: Blue Yonder -->
-            <div class="card1">
-              <strong>Blue Yonder (Panasonic) — Bangalore, India</strong><br>
-              <span>Software Engineer | September 2024 - Present</span>
-              <ul>
-                <li>Improved Warehouse Management System performance by optimizing inventory and order fulfillment processes.</li>
-                <li>Enhanced Yard Management System by automating trailer entry/exit flows and integrating carrier workspace.</li>
-                <li>Enabled real-time performance tracking dashboards for metrics delivery.</li>
-              </ul>
-            </div>
-        
-            <!-- Second Experience: Innominds Software -->
-            <div class="card1">
-              <strong>Innominds Software — Hyderabad, India</strong><br>
-              <span>Associate Software Engineer | May 2022 - September 2024</span>
-              <ul>
-                <li>Designed and built the DS PRO Commission Engine from scratch, transforming business logic into scalable backend services.</li>
-                <li>Led a critical data migration from OrientDB to MySQL, ensuring data integrity and relational mappings.</li>
-                <li>Built asynchronous data processing pipelines, improving performance by 50% and reducing system latency.</li>
-                <li>Developed Flyway scripts for schema versioning and ensured smooth, error-free deployments.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+  <div class="profile-section">
+    <img src="ProfilePic.jpg" alt="Yadhesh DG" class="profile-image">
+  </div>
 
-        <div class="section">
-          <h2>🎓 Education</h2>
-          <div class="card-list">
-            <!-- SSC -->
-            <div class="card">
-              <strong>Secondary School Certificate (SSC)</strong><br>
-              <span>Zilla Parishad High School, 2016 Batch</span><br>
-              <span>CGPA: 9.7</span>
-            </div>
-        
-            <!-- PUC -->
-            <div class="card">
-              <strong>Pre-University Course (PUC)</strong><br>
-              <span>Rajiv Gandhi University of Knowledge and Technologies formely AP IIIT, 2016-2018</span><br>
-              <span>Stream: Mathematics, Physics, and Chemistry (MPC)</span><br>
-              <span>CGPA: 8.6</span>
-            </div>
-        
-            <!-- B.Tech -->
-            <div class="card">
-              <strong>Bachelor of Technology (B.Tech)</strong><br>
-              <span>Rajiv Gandhi University of Knowledge and Technologies formely AP IIIT, 2018-2022</span><br>
-              <span>Stream: Electronics and Communication Engineering (ECE)</span><br>
-              <span>CGPA: 7.8</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="section">
-          <h2>🧠 Problem Solving</h2>
-          <div class="card-list">
-            <div class="card">
-              <i class="fa-solid fa-code badge"></i>
-              <strong>LeetCode</strong><br>
-              <span>Solved 300+ coding problems<br>
-                <a href="https://leetcode.com/u/dasariyadhesh/" target="_blank">View my LeetCode</a>
-              </span>
-            </div>
-            <div class="card">
-              <i class="fa-solid fa-laptop-code badge"></i>
-              <strong>Coding Ninjas</strong><br>
-              <span>Gold badge in Algorithms<br>
-                <a href="https://www.naukri.com/code360/profile/dasariyadhesh" target="_blank">View my Coding Ninja profile</a>
-              </span>
-            </div>
-           
-          </div>
-        </div>
-    
-        <div class="section">
-          <h2>🛠️ My Projects</h2>
-          <div class="card-list1">
-            <!-- First Project: E-Commerce Platform -->
-            <div class="card1">
-              <strong>🛒 E-Commerce Platform</strong>
-              <p>
-                A full-stack, production-ready E-commerce platform designed using Spring Boot, Hibernate, and Microservices architecture with Kafka-based messaging, MySQL, and secured endpoints. Built with scalability, reusability, and modularity in mind.
-              </p>
-              <ul>
-                <li>🔐 User & Admin authentication with role-based access.</li>
-                <li>🛍 Product catalog, category management, customer list (Admin view).</li>
-                <li>📦 Inventory management, secure product upload with images.</li>
-                <li>🛠 Integrated REST APIs with Swagger documentation.</li>
-                <li>📈 Metrics dashboard & admin workspace.</li>
-              </ul>
-              <span>Tech: Java, Spring Boot, Hibernate, MySQL, JSP</span><br>
-              <a href="https://github.com/dasariyadhesh/Ecommerce_Site" target="_blank">GitHub Repo</a>
-            </div>
-        
-            <!-- Second Project: Photo-Editax-App -->
-            <div class="card1">
-              <strong>📸 Photo-Editax-App</strong>
-              <p>
-                A Python-based photo editing application designed to provide users with essential tools for image enhancement and manipulation. The application leverages Python's powerful image processing libraries to make photo editing simple, efficient, and accessible.
-              </p>
-              <ul>
-                <li>🖼 Image Editing: Resize, crop, and rotate images with ease.</li>
-                <li>🎨 Filters and Effects: Apply various filters to enhance the appearance of photos.</li>
-                <li>🌈 Color Adjustments: Modify brightness, contrast, and saturation for perfect results.</li>
-                <li>✨ Customizable Tools: Add personalized effects to images.</li>
-              </ul>
-              <span>Tech: Python, OpenCV, PIL</span><br>
-              <a href="https://github.com/dasariyadhesh/Photo-Editax-App-main" target="_blank">GitHub Repo</a>
-            </div>
-          </div>
-        </div>
-        
-    <div class="section">
-      <h2>Skills</h2>
-      <ul class="skills-list">
-        <li>Java</li>
-        <li>SQL</li>
-        <li>JavaScript</li>
-        <li>Spring Boot</li>
-        <li>JUnit</li>
-        <li>ReactJS</li>
-        <li>GraphQL</li>
-        <li>Git</li>
-        <li>JIRA</li>
-        <li>Postman</li>
-        <li>Azure</li>
-        <li>MySQL</li>
-        <li>OrientDB</li>
-        <li>Microsoft SQL</li>
-        <li>Microservices Architecture</li>
-        <li>Kafka</li>
-        <li>CI/CD Pipelines</li>
-        <li>RESTful APIs</li>
-        <li>Data Structures & Algorithms</li>
-        <li>Design Patterns</li>
-        <li>TDD</li>
-        <li>OOPs</li>
-        <li>Agile</li>
-      </ul>
+  <div class="floating-contact">
+    <div class="contact-item">
+      <i class="fa-solid fa-envelope"></i>
+      <a href="mailto:yadheshdg19@gmail.com">yadheshdg19</a>
     </div>
-    
-      <!-- Social Media Tab -->
-      <div class="social-tab">
-        <a href="https://www.linkedin.com/in/dasariyadhesh/" target="_blank" title="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://www.instagram.com/yadhesh_dasari/" target="_blank" title="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.facebook.com/yadheshyadu" target="_blank" title="Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
+    <div class="contact-item">
+      <i class="fa-solid fa-phone"></i>
+      <a href="tel:+919063325407">+91 9063325407</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="header-section">
+      <h1>YADHESH DG</h1>
+      <div class="subtitle">Software Engineer | Backend Specialist | System Architect</div>
+      <div class="intro">
+        <p>
+          <strong>3.5+ years</strong> of hands-on experience building scalable enterprise solutions that drive real business impact. I specialize in <span class="highlight">backend development, microservices architecture, and distributed systems</span>—transforming complex business requirements into high-performance, production-ready applications.
+        </p>
+        <p>
+          Proven track record of delivering measurable results: <strong>30% efficiency improvements</strong>, <strong>50% latency reductions</strong>, and <strong>3x query performance gains</strong>. I thrive in fast-paced Agile environments where clean code, scalable architecture, and continuous improvement are paramount.
+        </p>
       </div>
-    </body>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">3.5+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">LeetCode Problems</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50K+</div>
+          <div class="stat-label">Enterprise Users Served</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1M+</div>
+          <div class="stat-label">Records Migrated</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>💼 Professional Experience</h2>
+      
+      <div class="work-card">
+        <div class="work-header">
+          <div>
+            <div class="company-name">Blue Yonder (Panasonic)</div>
+            <div style="color: #94a3b8; margin-top: 0.3rem;">Software Engineer</div>
+          </div>
+          <div class="work-period">Sep 2024 – Present | Bangalore, India</div>
+        </div>
+        <ul>
+          <li><strong>Improved WMS efficiency by 30%</strong> through deep performance tuning across Java EE, Spring Boot, Kafka, GraphQL, and Azure-based microservices</li>
+          <li><strong>Automated Yard Gate Management</strong>, reducing trailer check-in/out time by 60% through streamlined workflows and service optimizations</li>
+          <li><strong>Developed Yard Tracking features</strong> powered by Panasonic camera feeds to monitor trailer movement and update locations every 5 minutes, automatically raising exceptions for mismatches</li>
+          <li><strong>Built Yard Discrepancies module</strong> within YMS, detecting mismatched or missing trailer records between WMS and YMS, improving data accuracy by 40%</li>
+        </ul>
+      </div>
+
+      <div class="work-card">
+        <div class="work-header">
+          <div>
+            <div class="company-name">Innominds Software</div>
+            <div style="color: #94a3b8; margin-top: 0.3rem;">Associate Software Engineer</div>
+          </div>
+          <div class="work-period">May 2022 – Sep 2024 | Hyderabad, India</div>
+        </div>
+        <ul>
+          <li><strong>Developed DS PRO Commission Engine from scratch</strong>, serving 50K+ enterprise users with robust transaction processing and commission calculations</li>
+          <li><strong>Migrated 1M+ records from OrientDB to MySQL</strong>, improving query performance by 3x with optimized schema design and data integrity validation</li>
+          <li><strong>Built multithreaded processes using Java Concurrency APIs</strong>, reducing system latency by 50% through efficient parallel processing</li>
+          <li><strong>Designed SQL vs NoSQL POCs</strong>, improving scalability and reducing infrastructure costs by 20% through strategic database selection</li>
+          <li><strong>Implemented GDPR compliance</strong> (data masking, retention policies), ensuring full regulatory adherence across the platform</li>
+          <li><strong>Automated schema migrations with Flyway</strong>, reducing deployment errors by 90% and enabling seamless version control</li>
+          <li><strong>Integrated centralized logging & monitoring with ELK stack</strong>, cutting issue resolution time by 35% through enhanced observability</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🎓 Education</h2>
+      <div class="card-list">
+        <div class="card">
+          <i class="fas fa-graduation-cap card-icon"></i>
+          <strong style="font-size: 1.2rem; display: block; margin-bottom: 0.8rem;">B.Tech in ECE</strong>
+          <div style="color: #cbd5e1; line-height: 1.8;">
+            Rajiv Gandhi University of Knowledge Technologies<br>
+            <span style="color: #94a3b8;">(AP IIIT RK Valley)</span><br>
+            <strong>2018 – 2022</strong><br>
+            <span class="highlight">CGPA: 7.6</span>
+          </div>
+        </div>
+        <div class="card">
+          <i class="fas fa-school card-icon"></i>
+          <strong style="font-size: 1.2rem; display: block; margin-bottom: 0.8rem;">Pre-University Course (PUC)</strong>
+          <div style="color: #cbd5e1; line-height: 1.8;">
+            Rajiv Gandhi University of Knowledge Technologies<br>
+            <span style="color: #94a3b8;">Stream: MPC</span><br>
+            <strong>2016 – 2018</strong><br>
+            <span class="highlight">CGPA: 8.6</span>
+          </div>
+        </div>
+        <div class="card">
+          <i class="fas fa-award card-icon"></i>
+          <strong style="font-size: 1.2rem; display: block; margin-bottom: 0.8rem;">Secondary School (SSC)</strong>
+          <div style="color: #cbd5e1; line-height: 1.8;">
+            Zilla Parishad High School<br>
+            <strong>2016 Batch</strong><br>
+            <span class="highlight">CGPA: 9.7</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>💻 Featured Projects</h2>
+      
+      <div class="project-card">
+        <div class="project-title">🏛️ Bhu Seva - Trust Management Platform</div>
+        <p>
+          A modern, full-stack real-time trust management platform built with Next.js 14+, TypeScript, and cutting-edge web technologies. Enables transparent donation tracking, visitor management, and real-time updates for religious and charitable organizations.
+        </p>
+        <ul>
+          <li><strong>Real-time donation tracking</strong> with live dashboard updates and transaction history</li>
+          <li><strong>Visitor management system</strong> with check-in/check-out functionality and analytics</li>
+          <li><strong>Type-safe development</strong> with TypeScript ensuring robust code quality</li>
+          <li><strong>Modern UI components</strong> using shadcn/ui and Tailwind CSS for exceptional UX</li>
+          <li><strong>Server-side rendering</strong> and API routes for optimal performance and SEO</li>
+          <li><strong>Fully responsive design</strong> delivering seamless experience across all devices</li>
+        </ul>
+        <div class="tech-stack">Tech Stack: Next.js, TypeScript, React, Tailwind CSS, shadcn/ui</div>
+        <a href="https://github.com/dasariyadhesh/bhu_seva" target="_blank" style="font-weight: 600;">View Project on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">🛒 E-Commerce Platform</div>
+        <p>
+          Production-ready, full-stack e-commerce solution built with enterprise-grade architecture. Features Spring Boot microservices, Kafka event streaming, and comprehensive admin controls for scalable online retail operations.
+        </p>
+        <ul>
+          <li><strong>Microservices architecture</strong> with Kafka-based event-driven communication</li>
+          <li><strong>Role-based authentication</strong> with secure JWT token management for users and admins</li>
+          <li><strong>Complete product lifecycle</strong> management with catalog, inventory, and order processing</li>
+          <li><strong>Secure file uploads</strong> with image processing and CDN integration</li>
+          <li><strong>RESTful APIs</strong> with comprehensive Swagger documentation</li>
+          <li><strong>Admin dashboard</strong> with real-time metrics and customer management tools</li>
+        </ul>
+        <div class="tech-stack">Tech Stack: Java, Spring Boot, Hibernate, MySQL, Microservices, Kafka, JWT, Swagger</div>
+        <a href="https://github.com/dasariyadhesh/Ecommerce_Site" target="_blank" style="font-weight: 600;">View Project on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">📸 Photo-Editax - Image Processing Application</div>
+        <p>
+          Python-based desktop application leveraging OpenCV and PIL for professional-grade photo editing. Provides intuitive interface for image manipulation with real-time preview and batch processing capabilities.
+        </p>
+        <ul>
+          <li><strong>Advanced image editing</strong> tools for resize, crop, rotate, and flip operations</li>
+          <li><strong>Professional filters</strong> including blur, sharpen, edge detection, and color adjustments</li>
+          <li><strong>Color manipulation</strong> with brightness, contrast, saturation, and hue controls</li>
+          <li><strong>Batch processing</strong> support for applying effects to multiple images simultaneously</li>
+          <li><strong>Real-time preview</strong> ensuring accurate editing before saving</li>
+        </ul>
+        <div class="tech-stack">Tech Stack: Python, OpenCV, PIL (Pillow), NumPy</div>
+        <a href="https://github.com/dasariyadhesh/Photo-Editax-App-main" target="_blank" style="font-weight: 600;">View Project on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🧠 Problem Solving & Competitive Coding</h2>
+      <div class="card-list">
+        <div class="card">
+          <i class="fa-solid fa-code card-icon"></i>
+          <strong style="font-size: 1.2rem; display: block; margin-bottom: 1rem;">LeetCode</strong>
+          <div style="color: #cbd5e1; line-height: 1.8;">
+            <strong class="highlight">500+ problems solved</strong><br>
+            Strong focus on Data Structures & Algorithms<br>
+            Consistent practice in problem-solving patterns<br><br>
+            <a href="https://leetcode.com/u/dasariyadhesh/" target="_blank" style="font-weight: 600;">View LeetCode Profile →</a>
+          </div>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-laptop-code card-icon"></i>
+          <strong style="font-size: 1.2rem; display: block; margin-bottom: 1rem;">Coding Ninjas</strong>
+          <div style="color: #cbd5e1; line-height: 1.8;">
+            <strong class="highlight">Gold Badge in Algorithms</strong><br>
+            Advanced problem-solving proficiency<br>
+            Specialized in algorithmic challenges<br><br>
+            <a href="https://www.naukri.com/code360/profile/dasariyadhesh" target="_blank" style="font-weight: 600;">View Coding Ninjas Profile →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🛠️ Technical Skills</h2>
+      
+      <div style="margin-bottom: 2rem;">
+        <h3 style="color: #0ea5e9; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600;">Languages</h3>
+        <ul class="skills-list">
+          <li>Java</li>
+          <li>SQL</li>
+          <li>JavaScript</li>
+          <li>Python</li>
+        </ul>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h3 style="color: #0ea5e9; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600;">Frameworks & Libraries</h3>
+        <ul class="skills-list">
+          <li>Spring Boot</li>
+          <li>JUnit</li>
+          <li>ReactJS</li>
+          <li>GraphQL</li>
+          <li>Next.js</li>
+          <li>TypeScript</li>
+        </ul>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h3 style="color: #0ea5e9; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600;">Databases</h3>
+        <ul class="skills-list">
+          <li>MySQL</li>
+          <li>MS SQL Server</li>
+          <li>PostgreSQL</li>
+          <li>OrientDB</li>
+          <li>MongoDB</li>
+        </ul>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h3 style="color: #0ea5e9; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600;">Technologies & Tools</h3>
+        <ul class="skills-list">
+          <li>Kafka</li>
+          <li>REST APIs</li>
+          <li>Microservices</li>
+          <li>CI/CD</li>
+          <li>Azure</li>
+          <li>Docker</li>
+          <li>Jenkins</li>
+          <li>Git</li>
+          <li>Postman</li>
+          <li>Maven</li>
+          <li>Gradle</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="color: #0ea5e9; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600;">Core Concepts</h3>
+        <ul class="skills-list">
+          <li>Data Structures & Algorithms</li>
+          <li>Object-Oriented Programming</li>
+          <li>Test-Driven Development</li>
+          <li>Design Patterns</li>
+          <li>Agile Methodologies</li>
+          <li>System Design</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="social-tab">
+    <a href="https://www.linkedin.com/in/dasariyadhesh/" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/dasariyadhesh" target="_blank" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.instagram.com/yadhesh_dasari/" target="_blank" title="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.facebook.com/yadheshyadu" target="_blank" title="Facebook">
+      <i class="fab fa-facebook"></i>
+    </a>
   </div>
 </body>
 </html>
+          
