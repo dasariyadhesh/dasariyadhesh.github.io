@@ -207,7 +207,7 @@ footer .wrap { padding-block: 40px; display: flex; justify-content: space-betwee
     <div>
       <h1>Yadhesh DG</h1>
       <p class="role">Software engineer · backend and distributed systems</p>
-      <p class="lede">I build the backend of warehouse, yard-management and commission systems in Java, Spring Boot and Kafka. On my own projects I work the way I want a system handed to me: decisions written down, trade-offs stated, failure paths designed before happy paths.</p>
+      <p class="lede">I build the backend of warehouse, yard-management and commission systems in Java, Spring Boot and Kafka, currently on a platform of 40 event-driven microservices. On my own projects I work the way I want a system handed to me: decisions written down, trade-offs stated, failure paths designed before happy paths.</p>
       <p class="lede">Below are four systems I designed and built, each with a small demo you can run in the browser.</p>
       <div class="facts">
         <div><span class="label">Now</span><b>Blue Yonder (Panasonic)</b></div>
@@ -238,6 +238,7 @@ footer .wrap { padding-block: 40px; display: flex; justify-content: space-betwee
         <p class="when">Software Engineer<br>Sep 2024 – present · Bangalore</p>
       </div>
       <ul>
+        <li>Work on a distributed platform of 40 microservices that communicate over Kafka. Built and maintained its reliability patterns: dead-letter queues for failed events, idempotent consumers so redelivered messages don't repeat side effects, and retries with backoff.</li>
         <li>Performance work on the Warehouse Management System across Java EE, Spring Boot, Kafka, GraphQL and Azure services; overall efficiency improved by about 30%.</li>
         <li>Automated Yard Gate Management, cutting trailer check-in and check-out time by about 60%.</li>
         <li>Built Yard Tracking on Panasonic camera feeds: trailer locations refresh every 5 minutes and mismatches raise exceptions automatically.</li>
@@ -325,7 +326,7 @@ footer .wrap { padding-block: 40px; display: flex; justify-content: space-betwee
         <div class="meta"><span class="tag">Java 17 · Spring Boot 3.2</span><span class="tag">Apache Kafka</span><span class="tag">Docker Compose</span></div>
         <h3>Distributed Event Processing</h3>
         <dl>
-          <div><dt>Problem</dt><dd>At work I kept meeting the same Kafka failures: duplicates after a rebalance, events lost when a handler threw, and no way to inspect what failed. I built a reference implementation of the fixes.</dd></div>
+          <div><dt>Problem</dt><dd>Across the 40 Kafka-connected microservices I work on, the same failures kept coming up: duplicates after a rebalance, events lost when a handler threw, and no way to inspect what failed. I built a reference implementation of the fixes we use.</dd></div>
           <div><dt>Design</dt><dd>Events go to per-type topics (3 / 3 / 2 partitions). Consumers commit offsets manually, only after success, and skip duplicate event IDs. Failures retry with exponential backoff (1s, 2s, 4s) and then go to a dead-letter topic. The producer is idempotent with <code>acks=all</code>.</dd></div>
           <div><dt>What I'd change next</dt><dd>The idempotency set lives in memory, so it is lost on restart and not shared between instances; it belongs in Redis or a keyed table. Backoff uses <code>Thread.sleep</code> on the consumer thread, which stalls the partition; retry topics with delays would keep it moving.</dd></div>
         </dl>
